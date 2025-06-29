@@ -1,0 +1,186 @@
+/* === HEADER === */
+header {
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+ }
+ 
+ /* Logo */
+ header a img {
+    max-height: 40px;
+    width: auto;
+ }
+ 
+ /* Navegação mobile - inicialmente escondida */
+ header nav {
+    display: none;
+    width: 100%;
+    order: 3;
+ }
+ 
+ header nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+ }
+ 
+ header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+ }
+ 
+ header nav ul li a:hover {
+    background-color: #e0e0e0;
+ }
+ 
+ /* Botão do carrinho */
+ header button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+ }
+ 
+ header button img {
+    width: 20px;
+    height: 20px;
+ }
+ 
+ header button span {
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+ }
+ 
+ /* === TABLET === */
+ @media (min-width: 769px) {
+    header {
+        padding: 1rem 2rem;
+        flex-wrap: nowrap;
+    }
+    
+    header nav {
+        display: block;
+        width: auto;
+        order: 0;
+    }
+    
+    header nav ul {
+        flex-direction: row;
+        background-color: transparent;
+        padding: 0;
+        margin-top: 0;
+        gap: 2rem;
+    }
+    
+    header a img {
+        max-height: 50px;
+    }
+ }
+ 
+ /* === DESKTOP === */
+ @media (min-width: 1024px) {
+    header {
+        padding: 1.5rem 4rem;
+        width: 1280px;
+        margin: 0 auto;
+    }
+    
+    header nav ul {
+        gap: 3rem;
+    }
+    
+    header nav ul li a {
+        color: #ffffff;
+        font-size: 1.1rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    header a img {
+        max-height: 60px;
+    }
+    
+    header button {
+        padding: 1rem;
+    }
+ }
+
+/* === MENU HAMBURGUER === */
+.menu-hamburguer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+}
+.menu-hamburguer span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Esconde o menu hamburguer em telas grandes */
+@media (min-width: 769px) {
+  .menu-hamburguer {
+    display: none;
+  }
+}
+
+/* Mostra o nav quando header.menu-ativo está ativo */
+header.menu-ativo nav {
+  display: block;
+}
+
+.header-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Mobile: nav abre para baixo ocupando toda a largura */
+@media (max-width: 768px) {
+
+  header nav {
+   background-color: #111111;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    z-index: 10;
+    padding: 1rem;
+  }
+
+  header.menu-ativo {
+    position: relative;
+  }
+}

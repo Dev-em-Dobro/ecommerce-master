@@ -67,7 +67,7 @@ updateCartCount();
 
 const btnsAdicionarAoCarrinho = document.querySelectorAll('.adicionar-ao-carrinho');
 
-// Adiciona o listener em todos os botões “.add-to-cart”
+// Adiciona o listener em todos os botões ".add-to-cart"
 btnsAdicionarAoCarrinho.forEach(btn => {
   btn.addEventListener('click', event => {
     
@@ -129,3 +129,13 @@ tbody.addEventListener('input', function(event) {
     }
   }
 });
+
+// Menu hamburguer mobile
+const menuBtn = document.querySelector('.menu-hamburguer');
+const header = document.querySelector('header');
+
+if (menuBtn && header) {
+  menuBtn.addEventListener('click', () => {
+    header.classList.toggle('menu-ativo');
+  });
+}
