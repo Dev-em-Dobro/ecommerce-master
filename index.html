@@ -4,7 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>E-commerce Master</title>
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="./css/modal.css">
 	</head>
 	<body>
 		<header>
@@ -20,7 +21,7 @@
 					<li><a href="#contato">Fale conosco</a></li>
 				</ul>
 			</nav>
-			<button>
+			<button data-micromodal-trigger="modal-1">
 				<img src="./assets/images/icone_carrinho.svg" alt="Carrinho de Compras" />
 				<span id="contador-carrinho">0</span>
 			</button>
@@ -93,7 +94,7 @@
 		</footer>
 
 		<!-- [1] -->
-		<div id="modal-1" aria-hidden="true">
+		<div class="modal" id="modal-1" aria-hidden="true">
 			<!-- [2] -->
 			<div tabindex="-1" data-micromodal-close>
 				<!-- [3] -->
@@ -150,6 +151,9 @@
 			</div>
 		</div>
 
-		<script src="./js/index.js"></script>
+		<script src="./js/carrinho.js"></script>
+
+		<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+		<script src="./js/modal.js"></script>
 	</body>
 </html>
