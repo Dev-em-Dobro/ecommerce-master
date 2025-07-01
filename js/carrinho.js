@@ -1,5 +1,5 @@
 // Função para ler o carrinho do localStorage (ou criar vazio)
-function obterCarrinho() {
+function obterProdutosDoCarrinho() {
   const produtos = localStorage.getItem('carrinho');
   return produtos ? JSON.parse(produtos) : [];
 }
@@ -10,25 +10,25 @@ function salvarCarrinho(carrinho) {
 }
 
 function removerDoCarrinho(produtoId) {
-    const carrinho = obterCarrinho();
+    const carrinho = obterProdutosDoCarrinho();
     const carrinhoAtualizado = carrinho.filter(item => item.id !== produtoId);
     salvarCarrinho(carrinhoAtualizado);
 }
 
 // Atualiza o número exibido ao lado do carrinho
 function atualizarContadorCarrinho() {
-  const carrinho = obterCarrinho();
+  const carrinho = obterProdutosDoCarrinho();
   const total = carrinho.reduce((soma, item) => soma + (item.quantidade || 1), 0);
   document.getElementById('contador-carrinho').textContent = total;
 }
 
 // Função para renderizar a tabela do carrinho
 function renderizarTabelaCarrinho() {
-  const carrinho = obterCarrinho();
+  const produtos = obterProdutosDoCarrinho();
   const corpoTabela = document.querySelector('#modal-1-content table tbody');
   if (!corpoTabela) return;
   corpoTabela.innerHTML = '';
-  carrinho.forEach(item => {
+  produtos.forEach(item => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td><img src="${item.imagem || './assets/images/camiseta_roxa.jpg'}" alt="${item.nome}" /></td>
@@ -47,7 +47,7 @@ renderizarTabelaCarrinho();
 
 // Função para atualizar o valor total do carrinho
 function atualizarTotalCarrinho() {
-  const carrinho = obterCarrinho();
+  const carrinho = obterProdutosDoCarrinho();
   const total = carrinho.reduce((soma, item) => soma + (item.preco * (item.quantidade || 1)), 0);
   const totalSpan = document.getElementById('total-carrinho');
   if (totalSpan) {
@@ -84,7 +84,7 @@ botoesAdicionarAoCarrinho.forEach(botao => {
     const produtoImagem = elementoProduto.querySelector('img').getAttribute('src');
 
     // Carrega o carrinho
-    const carrinho = obterCarrinho();
+    const carrinho = obterProdutosDoCarrinho();
     // Procura se já existe o produto
     const existente = carrinho.find(item => item.id === produtoId);
     if (existente) {
@@ -120,7 +120,7 @@ corpoTabela.addEventListener('input', function(evento) {
     const id = evento.target.getAttribute('data-id');
     let novaQuantidade = parseInt(evento.target.value, 10);
     if (isNaN(novaQuantidade) || novaQuantidade < 1) novaQuantidade = 1;
-    const carrinho = obterCarrinho();
+    const carrinho = obterProdutosDoCarrinho();
     const item = carrinho.find(item => item.id === id);
     if (item) {
       item.quantidade = novaQuantidade;
