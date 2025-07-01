@@ -1,7 +1,7 @@
 // Função para ler o carrinho do localStorage (ou criar vazio)
 function obterCarrinho() {
-  const armazenado = localStorage.getItem('carrinho');
-  return armazenado ? JSON.parse(armazenado) : [];
+  const produtos = localStorage.getItem('carrinho');
+  return produtos ? JSON.parse(produtos) : [];
 }
 
 // Função para salvar o carrinho no localStorage
