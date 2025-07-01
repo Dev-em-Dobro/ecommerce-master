@@ -1,54 +1,54 @@
 // Função para ler o carrinho do localStorage (ou criar vazio)
-function getCart() {
-  const stored = localStorage.getItem('cart');
-  return stored ? JSON.parse(stored) : [];
+function obterCarrinho() {
+  const armazenado = localStorage.getItem('carrinho');
+  return armazenado ? JSON.parse(armazenado) : [];
 }
 
 // Função para salvar o carrinho no localStorage
-function saveCart(cart) {
-  localStorage.setItem('cart', JSON.stringify(cart));
+function salvarCarrinho(carrinho) {
+  localStorage.setItem('carrinho', JSON.stringify(carrinho));
 }
 
-function removeFromCart(productId) {
-    const cart = getCart();
-    const updatedCart = cart.filter(item => item.id !== productId);
-    saveCart(updatedCart);
+function removerDoCarrinho(produtoId) {
+    const carrinho = obterCarrinho();
+    const carrinhoAtualizado = carrinho.filter(item => item.id !== produtoId);
+    salvarCarrinho(carrinhoAtualizado);
 }
 
 // Atualiza o número exibido ao lado do carrinho
-function updateCartCount() {
-  const cart = getCart();
-  const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+function atualizarContadorCarrinho() {
+  const carrinho = obterCarrinho();
+  const total = carrinho.reduce((soma, item) => soma + (item.quantidade || 1), 0);
   document.getElementById('contador-carrinho').textContent = total;
 }
 
 // Função para renderizar a tabela do carrinho
-function renderCartTable() {
-  const cart = getCart();
-  const tbody = document.querySelector('#modal-1-content table tbody');
-  if (!tbody) return;
-  tbody.innerHTML = '';
-  cart.forEach(item => {
+function renderizarTabelaCarrinho() {
+  const carrinho = obterCarrinho();
+  const corpoTabela = document.querySelector('#modal-1-content table tbody');
+  if (!corpoTabela) return;
+  corpoTabela.innerHTML = '';
+  carrinho.forEach(item => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td><img src="${item.image || './assets/images/camiseta_roxa.jpg'}" alt="${item.name}" /></td>
-      <td>${item.name}</td>
-      <td>R$ ${item.price.toFixed(2).replace('.', ',')}</td>
-      <td><input type="number" value="${item.quantity}" min="1" data-id="${item.id}" class="input-quantidade" /></td>
-      <td><strong>R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</strong></td>
+      <td><img src="${item.imagem || './assets/images/camiseta_roxa.jpg'}" alt="${item.nome}" /></td>
+      <td>${item.nome}</td>
+      <td>R$ ${item.preco.toFixed(2).replace('.', ',')}</td>
+      <td><input type="number" value="${item.quantidade}" min="1" data-id="${item.id}" class="input-quantidade" /></td>
+      <td><strong>R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}</strong></td>
       <td><button class="btn-deletar" data-id="${item.id}">Deletar</button></td>
     `;
-    tbody.appendChild(tr);
+    corpoTabela.appendChild(tr);
   });
 }
 
 // Chama ao carregar a página
-renderCartTable();
+renderizarTabelaCarrinho();
 
 // Função para atualizar o valor total do carrinho
-function updateCartTotal() {
-  const cart = getCart();
-  const total = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+function atualizarTotalCarrinho() {
+  const carrinho = obterCarrinho();
+  const total = carrinho.reduce((soma, item) => soma + (item.preco * (item.quantidade || 1)), 0);
   const totalSpan = document.getElementById('total-carrinho');
   if (totalSpan) {
     totalSpan.textContent = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
@@ -56,86 +56,86 @@ function updateCartTotal() {
 }
 
 // Atualiza tabela, contador e total juntos
-function updateCartAndTable() {
-  updateCartCount();
-  renderCartTable();
-  updateCartTotal();
+function atualizarCarrinhoETabela() {
+  atualizarContadorCarrinho();
+  renderizarTabelaCarrinho();
+  atualizarTotalCarrinho();
 }
 
 // Ao carregar a página, já exibe o count correto
-updateCartCount();
+atualizarContadorCarrinho();
 
-const btnsAdicionarAoCarrinho = document.querySelectorAll('.adicionar-ao-carrinho');
+const botoesAdicionarAoCarrinho = document.querySelectorAll('.adicionar-ao-carrinho');
 
-// Adiciona o listener em todos os botões ".add-to-cart"
-btnsAdicionarAoCarrinho.forEach(btn => {
-  btn.addEventListener('click', event => {
+// Adiciona o listener em todos os botões ".adicionar-ao-carrinho"
+botoesAdicionarAoCarrinho.forEach(botao => {
+  botao.addEventListener('click', evento => {
     
-    const card = event.target.closest('.produto');
-    const productId = card.dataset.id;
-    const productName = card.querySelector('.nome').textContent;
-    const productPrice = parseFloat(
-      card.querySelector('.preco')
+    const elementoProduto = evento.target.closest('.produto');
+    const produtoId = elementoProduto.dataset.id;
+    const produtoNome = elementoProduto.querySelector('.nome').textContent;
+    const produtoPreco = parseFloat(
+      elementoProduto.querySelector('.preco')
           .textContent
           .replace('R$', '')
           .replace('.', '')
           .replace(',', '.')
     );
-    const productImage = card.querySelector('img').getAttribute('src');
+    const produtoImagem = elementoProduto.querySelector('img').getAttribute('src');
 
     // Carrega o carrinho
-    const cart = getCart();
+    const carrinho = obterCarrinho();
     // Procura se já existe o produto
-    const existing = cart.find(item => item.id === productId);
-    if (existing) {
-      existing.quantity = (existing.quantity || 1) + 1;
+    const existente = carrinho.find(item => item.id === produtoId);
+    if (existente) {
+      existente.quantidade = (existente.quantidade || 1) + 1;
     } else {
-      cart.push({
-        id: productId,
-        name: productName,
-        price: productPrice,
-        quantity: 1,
-        image: productImage
+      carrinho.push({
+        id: produtoId,
+        nome: produtoNome,
+        preco: produtoPreco,
+        quantidade: 1,
+        imagem: produtoImagem
       });
     }
-    saveCart(cart);
-    updateCartAndTable();
+    salvarCarrinho(carrinho);
+    atualizarCarrinhoETabela();
   });
 });
 
 // Evento para deletar produto do carrinho
 // Usa delegação de eventos para pegar qualquer botão de deletar
-const tbody = document.querySelector('#modal-1-content table tbody');
-tbody.addEventListener('click', function(event) {
-  if (event.target.classList.contains('btn-deletar')) {
-    const id = event.target.getAttribute('data-id');
-    removeFromCart(id);
-    updateCartAndTable();
+const corpoTabela = document.querySelector('#modal-1-content table tbody');
+corpoTabela.addEventListener('click', function(evento) {
+  if (evento.target.classList.contains('btn-deletar')) {
+    const id = evento.target.getAttribute('data-id');
+    removerDoCarrinho(id);
+    atualizarCarrinhoETabela();
   }
 });
 
 // Evento para atualizar quantidade do produto no carrinho
-tbody.addEventListener('input', function(event) {
-  if (event.target.classList.contains('input-quantidade')) {
-    const id = event.target.getAttribute('data-id');
-    let novaQuantidade = parseInt(event.target.value, 10);
+corpoTabela.addEventListener('input', function(evento) {
+  if (evento.target.classList.contains('input-quantidade')) {
+    const id = evento.target.getAttribute('data-id');
+    let novaQuantidade = parseInt(evento.target.value, 10);
     if (isNaN(novaQuantidade) || novaQuantidade < 1) novaQuantidade = 1;
-    const cart = getCart();
-    const item = cart.find(item => item.id === id);
+    const carrinho = obterCarrinho();
+    const item = carrinho.find(item => item.id === id);
     if (item) {
-      item.quantity = novaQuantidade;
-      saveCart(cart);
-      updateCartAndTable();
+      item.quantidade = novaQuantidade;
+      salvarCarrinho(carrinho);
+      atualizarCarrinhoETabela();
     }
   }
 });
 
 // Menu hamburguer mobile
-const menuBtn = document.querySelector('.menu-hamburguer');
-const header = document.querySelector('header');
+const botaoMenu = document.querySelector('.menu-hamburguer');
+const cabecalho = document.querySelector('header');
 
-if (menuBtn && header) {
-  menuBtn.addEventListener('click', () => {
-    header.classList.toggle('menu-ativo');
+if (botaoMenu && cabecalho) {
+  botaoMenu.addEventListener('click', () => {
+    cabecalho.classList.toggle('menu-ativo');
   });
 }
