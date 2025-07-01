@@ -44,6 +44,7 @@ function renderizarTabelaCarrinho() {
 
 // Chama ao carregar a página
 renderizarTabelaCarrinho();
+atualizarTotalCarrinho();
 
 // Função para atualizar o valor total do carrinho
 function atualizarTotalCarrinho() {
