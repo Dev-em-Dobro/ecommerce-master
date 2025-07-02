@@ -1,16 +1,19 @@
 footer {
     grid-area: footer;
-    background-color: #130234;
+    background-color: #29272A;
     color: #BCA2ED;
     padding: 2rem 1rem 0;
-    display: grid;
-    grid-template-columns: 1fr;
+}
+
+footer .container {
+    display: flex;
+    width: 1280px;
+    margin: 0 auto;
     gap: 2rem;
-    text-align: center;
 }
 
 footer nav {
-    padding: 0 4.5rem;
+    padding: 1rem 4.5rem;
 }
 
 footer nav h3 {
@@ -20,10 +23,8 @@ footer nav h3 {
     letter-spacing: 1.6px;
 }
 
-footer nav ul {
-    list-style: none;
-    display: grid;
-    gap: 0.5rem;
+footer nav ul li{
+    margin-bottom: 12px;
 }
 
 footer nav ul li a {
@@ -34,7 +35,7 @@ footer nav ul li a {
 }
 
 footer nav ul li a:hover {
-    color: white;
+    color: #ffffff;
 }
 
 footer .copyright {
