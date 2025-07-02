@@ -1,0 +1,80 @@
+/* === SEÇÃO DE PRODUTOS === */
+main section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #333;
+}
+
+main section ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    list-style: none;
+}
+
+.produto {
+    background-color: #ffffff;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 368px;
+}
+
+.produto:hover {
+    transform: translateY(-5px);
+}
+
+.produto figure img {
+    width: 100%;
+    height: 334px;
+    display: block;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+}
+
+.produto figcaption {
+    background-color: #270234;
+    color: #ffffff;
+    padding: 1.5rem 1.5rem 1.2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.produto div {
+    background-color: #270234;
+    padding: 0 1.5rem 1.5rem;
+    display: grid;
+    gap: 0.5rem;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.produto div span, .produto div strong {
+    color: #EDEDED;
+    font-size: 0.9rem;
+}
+
+.produto .preco {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 1rem;
+    text-align: right;
+}
+
+.produto .adicionar-ao-carrinho {
+    background-color: #6528D3;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.produto .adicionar-ao-carrinho:hover {
+    background-color: #0056b3;
+}
