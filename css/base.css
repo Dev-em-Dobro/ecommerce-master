@@ -1,7 +1,7 @@
 /* === ESTRUTURA BASE === */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #111111;
+    background-color: #29272A;
     min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto; 

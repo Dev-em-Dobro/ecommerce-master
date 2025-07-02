@@ -1,8 +1,8 @@
 footer {
     grid-area: footer;
     background-color: #130234;
-    color: #6828D3;
-    /* padding: 2rem 1rem; */
+    color: #BCA2ED;
+    padding: 2rem 1rem 0;
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -10,14 +10,14 @@ footer {
 }
 
 footer nav {
-    padding: 0 4rem;
+    padding: 0 4.5rem;
 }
 
 footer nav h3 {
     color: #ffffff;
     margin-bottom: 1rem;
     font-size: 1.2rem;
-
+    letter-spacing: 1.6px;
 }
 
 footer nav ul {
@@ -27,9 +27,10 @@ footer nav ul {
 }
 
 footer nav ul li a {
-    color: #6828D3;
+    color: #BCA2ED;
     text-decoration: none;
     transition: color 0.3s;
+    letter-spacing: 1.6px;
 }
 
 footer nav ul li a:hover {
@@ -43,4 +44,19 @@ footer .copyright {
     color: #EDEDED;
     padding: 1rem;
     font-size: 0.8rem;
+    letter-spacing: 1.6px;
+}
+
+@media (min-width: 769px) {
+    footer {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+    }
+}
+
+@media (min-width: 1024px) {
+    footer {
+        grid-template-columns: repeat(3, 1fr);
+        /* padding: 4rem 2rem; */
+    }
 }
