@@ -7,7 +7,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: #828282;
   display: none;
   align-items: center;
   justify-content: center;
@@ -30,7 +30,6 @@
   max-height: 90vh;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
 }
 
 /* 3. Header */
@@ -77,6 +76,7 @@ thead {
 }
 
 th, td {
+    border: 4px solid #1f1f1f;
   padding: 8px;
   text-align: left;
   vertical-align: middle;
@@ -84,13 +84,12 @@ th, td {
 
 th {
   font-size: 0.75rem; /*12px*/
-  text-transform: uppercase;
   letter-spacing: 0.5px;
   color: #e4e4e7;
 }
 
 tbody tr {
-  background: #1f1f1f;
+  
   border-bottom: 1px solid #3f3f46;
 }
 
@@ -143,25 +142,25 @@ td button {
 .container-preço {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: flex-end;
+  gap: 2rem;
   margin-top: auto;
 }
 
 #total-carrinho {
   font-size: 1rem; /*16px*/
-  font-weight: 600;
+  font-weight: 500;
   text-align: right;
 }
 
 .finalizar-compra {
-  width: 100%;
+  width: 360px;
   padding: 12px;
   background: #7c3aed;
   color: #ffffff;
   border: none;
   border-radius: 6px;
   font-size: 1rem;
-  text-transform: uppercase;
   cursor: pointer;
 }
 
@@ -173,17 +172,16 @@ td button {
   }
 
   .container-preço {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: right;
+    align-items: flex-end;
   }
 
   #total-carrinho {
-    font-size: 1.5rem; /*24px*/
+    font-size: 2rem; /*24px*/
   }
 
   .finalizar-compra {
-    width: auto;
+  
     min-width: 200px;
   }
 }
