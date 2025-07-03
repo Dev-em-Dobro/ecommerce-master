@@ -33,12 +33,20 @@
   display: block;
   height: 4px;
   width: 100%;
+<<<<<<< HEAD
   background: var(--cor-neutra-clara);
+=======
+  background: #ffffff;
+>>>>>>> 47fa754fdda89c10423c1dc9bb44d155ef693d58
   border-radius: 2px;
 }
 
 .cabecalho .menu-principal {
+<<<<<<< HEAD
   background-color: var(--cor-neutra-escura);
+=======
+  background-color: #111111;
+>>>>>>> 47fa754fdda89c10423c1dc9bb44d155ef693d58
   display: none;
   position: absolute;
   width: 100%;
@@ -56,14 +64,22 @@
 }
 
 .cabecalho .menu-principal ul li a {
+<<<<<<< HEAD
   color: var(--cor-neutra-clara);
+=======
+  color: #ffffff;
+>>>>>>> 47fa754fdda89c10423c1dc9bb44d155ef693d58
   letter-spacing: 0.1rem;
   transition: background-color 0.3s;
   padding: 0.75rem 1rem;
 }
 
 .cabecalho .menu-principal ul li a:hover {
+<<<<<<< HEAD
   background-color: var(--cor-primaria);
+=======
+  background-color: #6528d3;
+>>>>>>> 47fa754fdda89c10423c1dc9bb44d155ef693d58
 }
 
 .cabecalho.menu-ativo .menu-principal {
