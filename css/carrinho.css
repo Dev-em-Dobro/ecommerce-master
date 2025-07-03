@@ -1,0 +1,186 @@
+/* 1. Overlay e display do modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #828282;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Mostrar quando aria-hidden=false */
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+
+/* 2. Container do diálogo */
+.modal > div > div[role="dialog"] {
+  background: #2a2a2a;
+  color: #e4e4e7;
+  border-radius: 12px;
+  padding: 16px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3. Header */
+.modal header {
+  text-align: center;
+  border-bottom: 1px solid #3f3f46;
+  margin-bottom: 16px;
+  padding: 0;
+}
+
+.modal h2 {
+  font-size: 1.125rem; /*18px*/
+  font-weight: 600;
+  margin: 0;
+}
+
+/* 4. Botão de fechar */
+.modal button[data-micromodal-close] {
+  background: transparent;
+  border: none;
+  color: #e4e4e7;
+  font-size: 1.25rem; /*20px*/
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* 5. Conteúdo principal com table scroll em mobile */
+#modal-1-content {
+  overflow-x: auto;
+}
+
+/* 6. Estilo da tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+}
+
+thead {
+  background: #18181b;
+}
+
+th, td {
+    border: 4px solid #1f1f1f;
+  padding: 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  font-size: 0.75rem; /*12px*/
+  letter-spacing: 0.5px;
+  color: #e4e4e7;
+}
+
+tbody tr {
+  
+  border-bottom: 1px solid #3f3f46;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Imagem do produto */
+td img {
+  width: 48px;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Descrição em roxo */
+td:nth-child(2) {
+  color: #a78bfa;
+  font-size: 0.875rem; /*14px*/
+}
+
+/* Preço e total */
+td:nth-child(3),
+td:nth-child(5) {
+  font-size: 0.875rem;
+  color: #e4e4e7;
+}
+
+/* Input de quantidade */
+td input[type="number"] {
+  width: 48px;
+  padding: 4px;
+  background: transparent;
+  border: 1px solid #7c3aed;
+  border-radius: 4px;
+  color: #e4e4e7;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* Botão de remover */
+td button {
+  background: transparent;
+  border: none;
+  color: #e4e4e7;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* 7. Resumo e ação */
+.container-preço {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-top: auto;
+}
+
+#total-carrinho {
+  font-size: 1rem; /*16px*/
+  font-weight: 500;
+  text-align: right;
+}
+
+.finalizar-compra {
+  width: 360px;
+  padding: 12px;
+  background: #7c3aed;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* 8. Ajustes para desktop */
+@media (min-width: 768px) {
+  .modal > div > div[role="dialog"] {
+    max-width: 720px;
+    padding: 24px;
+  }
+
+  .modal .header {
+    text-align: left;
+  }
+
+  .container-preço {
+    justify-content: right;
+    align-items: flex-end;
+  }
+
+  #total-carrinho {
+    font-size: 2rem; /*24px*/
+  }
+
+  .finalizar-compra {
+  
+    min-width: 200px;
+  }
+}
