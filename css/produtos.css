@@ -1,22 +1,28 @@
+main {
+  padding: 1rem;
+}
+
 main section h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
-  text-align: center;
-  color: #333;
+  color: #ffffff;
+  font-weight: 400;
+  letter-spacing: 1.6px;
 }
 
 main section ul {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
   gap: 2rem;
-  list-style: none;
 }
 
 .produto {
   background-color: #ffffff;
   border-radius: 14px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  width: 368px;
+  transition: transform 0.3s;
+  max-width: 368px;
 }
 
 .produto:hover {
@@ -26,13 +32,14 @@ main section ul {
 .produto figure img {
   width: 100%;
   height: 334px;
-  display: block;
+  object-fit: center;
+
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
 
 .produto figcaption {
-  background-color: #29272A;
+  background-color: #29272a;
   color: #ffffff;
   padding: 1.5rem 1.5rem 1.2rem;
   font-size: 1.2rem;
@@ -41,7 +48,7 @@ main section ul {
 }
 
 .produto div {
-  background-color: #29272A;
+  background-color: #29272a;
   padding: 0 1.5rem 1.5rem;
   display: grid;
   gap: 0.5rem;
@@ -78,4 +85,30 @@ main section ul {
 
 .produto .adicionar-ao-carrinho:hover {
   background-color: #0056b3;
+}
+
+/* === TABLET === */
+@media (min-width: 769px) {
+  main {
+    padding: 3rem 2rem;
+  }
+
+  main section ul {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+}
+
+/* === DESKTOP === */
+@media (min-width: 1280px) {
+  main section {
+    /* grid-template-columns: repeat(3, 1fr); */
+    max-width: 1200px;
+    margin: 0 auto;
+    /* padding: 4rem 2rem; */
+  }
+
+  main section ul {
+    gap: 3rem;
+  }
 }
