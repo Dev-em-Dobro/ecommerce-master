@@ -31,12 +31,12 @@ function renderizarTabelaCarrinho() {
   produtos.forEach(item => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td><img src="${item.imagem || './assets/images/camiseta_roxa.jpg'}" alt="${item.nome}" /></td>
+      <td class="td-produto"<img src="${item.imagem || './assets/images/camiseta_roxa.jpg'}" alt="${item.nome}" /></td>
       <td>${item.nome}</td>
-      <td>R$ ${item.preco.toFixed(2).replace('.', ',')}</td>
-      <td><input type="number" value="${item.quantidade}" min="1" data-id="${item.id}" class="input-quantidade" /></td>
-      <td><strong>R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}</strong></td>
-      <td><button class="btn-deletar" data-id="${item.id}">Deletar</button></td>
+      <td class="preco-unitario">R$ ${item.preco.toFixed(2).replace('.', ',')}</td>
+      <td class="quantidade"><input type="number" value="${item.quantidade}" min="1" data-id="${item.id}" class="input-quantidade" /></td>
+      <td class="td-preco-total"><strong>R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}</strong></td>
+      <td><button class="btn-deletar" data-id="${item.id}"></button></td>
     `;
     corpoTabela.appendChild(tr);
   });
