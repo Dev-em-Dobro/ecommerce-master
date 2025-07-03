@@ -1,214 +1,129 @@
 .cabecalho {
-   grid-area: header;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   gap: 10px;
-   padding-top: 30px;
-}
-
-.cabecalho .logo img {
-   max-height: 40px;
-   width: auto;
-}
-
-/* Navegação mobile - inicialmente escondida */
-.cabecalho nav {
-   display: none;
-   width: 100%;
-   order: 3;
-}
-
-.cabecalho nav ul {
-   display: flex;
-   flex-direction: column;
-   gap: 10px;
-   padding: 1rem;
-   border-radius: 8px;
-   margin-top: 1rem;
-}
-
-.cabecalho nav ul li a {
-   color: #ffffff;
-   text-decoration: none;
-   padding: 0.5rem;
-   border-radius: 4px;
-   transition: background-color 0.3s;
-}
-
-.cabecalho nav ul li a:hover {
-   background-color: #6528D3;
-}
-
-/* Botão do carrinho */
-.cabecalho .botao-carrinho {
-   background-color: transparent;
-   border: none;
-   border-radius: 8px;
-   padding: 0.75rem;
-   cursor: pointer;
-   position: relative;
-   display: flex;
-   align-items: center;
-   gap: 0.5rem;
-}
-
-.cabecalho .botao-carrinho img {
-   width: 26px;
-   height: 26px;
-}
-
-.cabecalho .botao-carrinho span {
-   position: absolute;
-   top: 27px;
-   left: 29px;
-   background-color: #6528D3;
-   color: white;
-   border-radius: 50%;
-   width: 16px;
-   height: 16px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-size: 0.7rem;
-   font-weight: bold;
-}
-
-/* === TABLET === */
-@media (min-width: 769px) {
-   .cabecalho {
-      padding: 1rem 2rem;
-      flex-wrap: nowrap;
-      justify-content: space-around;
-   }
-
-   .cabecalho .logo {
-      margin-right: 30px;
-   }
-
-   .cabecalho nav {
-      display: block;
-      width: auto;
-      order: 0;
-   }
-
-   .cabecalho nav ul {
-      flex-direction: row;
-      background-color: transparent;
-      padding: 0;
-      margin-top: 0;
-      gap: 2rem;
-   }
-
-   .cabecalho a img {
-      max-height: 50px;
-   }
-}
-
-/* === DESKTOP === */
-@media (min-width: 1024px) {
-   .cabecalho {
-      padding: 1.5rem 4rem;
-      width: 1280px;
-      margin: 0 auto;
-   }
-
-   .cabecalho nav ul {
-      gap: 3rem;
-   }
-
-   .cabecalho ul li a {
-      color: #ffffff;
-      font-size: 1.1rem;
-      padding: 0.75rem 1rem;
-      letter-spacing: 1.5px;
-   }
-
-   .cabecalho a img {
-      max-height: 60px;
-   }
-
-   .cabecalho .botao-carrinho {
-      padding: 1rem;
-   }
-}
-
-/* === MENU HAMBURGUER === */
-.menu-hamburguer {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   gap: 5px;
-   width: 24px;
-   height: 16px;
-   background: none;
-   border: none;
-   cursor: pointer;
-
-}
-
-.menu-hamburguer span {
-   display: block;
-   height: 4px;
-   width: 100%;
-   background: #ffffff;
-   border-radius: 2px;
-   transition: 0.3s;
+  grid-area: header;
+  padding: 30px 0;
 }
 
 .header-conteudo {
-   display: flex;
-   justify-content: space-between; /* esquerda e direita */
-   align-items: center;
-   width: 100%;
-   padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem;
 }
-/* Mostra o nav quando header.menu-ativo está ativo */
-.cabecalho.menu-ativo nav {
-   display: block;
-}
-/* Parte esquerda: menu + logo */
+
 .header-esquerda {
-   display: flex;
-   align-items: center;
-   gap: 1rem;
-   width: auto;
-   padding-top: 0;
-   margin-right: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* .header-esquerda {
-   display: flex;
-   width: 100vw; 
-   justify-content: space-around;
-   align-items: center;
-   gap: 1rem;
-    margin-right: 0.5rem; 
-   padding-top: 2rem;
-} */
-
-/* Esconde o menu hamburguer em telas grandes */
-@media (min-width: 769px) {
-   .menu-hamburguer {
-      display: none;
-   }
+.menu-hamburguer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+  width: 24px;
+  height: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-/* Mobile: nav abre para baixo ocupando toda a largura */
-@media (max-width: 768px) {
+.menu-hamburguer span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: var(--cor-neutra-clara);
+  border-radius: 2px;
+}
 
-   .cabecalho nav {
-      background-color: #111111;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100vw;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      z-index: 10;
-      padding: 1rem;
-   }
+.cabecalho .menu-principal {
+  background-color: var(--cor-neutra-escura);
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 5rem;
+  left: 0;
+  padding: 1rem;
+}
 
-   .cabecalho.menu-ativo {
-      position: relative;
-   }
+.cabecalho .menu-principal ul {
+  padding: 1rem 0;
+}
+
+.cabecalho .menu-principal ul li {
+  margin-top: 1.5rem;
+}
+
+.cabecalho .menu-principal ul li a {
+  color: var(--cor-neutra-clara);
+  letter-spacing: 0.1rem;
+  transition: background-color 0.3s;
+  padding: 0.75rem 1rem;
+}
+
+.cabecalho .menu-principal ul li a:hover {
+  background-color: var(--cor-primaria);
+}
+
+.cabecalho.menu-ativo .menu-principal {
+  display: block;
+}
+
+.botao-carrinho {
+  background-color: transparent;
+  border: none;
+  padding: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.botao-carrinho img {
+  width: 26px;
+  height: 26px;
+}
+
+.botao-carrinho span {
+  background-color: var(--cor-primaria);
+  color: var(--cor-neutra-clara);
+  font-weight: bold;
+  font-size: 0.7rem;
+  margin-left: 0.5rem;
+  position: absolute;
+  top: 27px;
+  left: 20px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 940px) {
+  
+  .cabecalho .menu-principal {
+    display: block;
+    position: static;
+    width: auto;
+  }
+
+  .menu-hamburguer {
+    display: none;
+  }
+
+  .cabecalho .menu-principal ul {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media(min-width: 1170px) {
+  .cabecalho {
+    min-width: 1170px;
+    margin: 0 auto;
+  }
 }

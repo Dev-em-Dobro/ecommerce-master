@@ -1,7 +1,18 @@
-/* === ESTRUTURA BASE === */
+:root {
+    /* Cores principais */
+  --cor-primaria: #6528d3;     /* Cor principal da marca */
+  --cor-primaria-hover: #834de8;
+  
+  /* Cores neutras */
+  --cor-neutra-clara: #ffffff;
+  --cor-neutra-escura: #111111;
+  --cor-cinza-escura: #29272a;
+  --cor-cinza-clara: #ededed;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #111111;
+    background-color: var(--cor-neutra-escura);
     min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto; 
