@@ -31,7 +31,7 @@ function renderizarTabelaCarrinho() {
   produtos.forEach(item => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td class="td-produto"<img src="${item.imagem || './assets/images/camiseta_roxa.jpg'}" alt="${item.nome}" /></td>
+      <td class="td-produto"><img src="${item.imagem || './assets/images/camiseta_roxa.jpg'}" alt="${item.nome}" /></td>
       <td>${item.nome}</td>
       <td class="preco-unitario">R$ ${item.preco.toFixed(2).replace('.', ',')}</td>
       <td class="quantidade"><input type="number" value="${item.quantidade}" min="1" data-id="${item.id}" class="input-quantidade" /></td>
